@@ -138,7 +138,6 @@ h1, h2, h3, p {
 .carousel-track {
   display: flex;
   width: max-content;        /* 10 foto total (5 asli + 5 duplikat) */
-  animation: scroll 30s linear infinite; /* durasi bisa disesuaikan */
 }
 
 .carousel-track img {
@@ -220,6 +219,26 @@ h1, h2, h3, p {
 }
 
 #rsvp .btn {
+  margin-top: 20px;
+}
+
+#rsvp form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+#rsvp input,
+#rsvp select {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-family: inherit;
+}
+
+#rsvpMessage {
   margin-top: 20px;
 }
 
