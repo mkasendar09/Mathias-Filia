@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let position = 0;
-  let speed = window.innerWidth < 768 ? 0.2 : 0.5;
+  let speed = window.innerWidth < 768 ? 0.8 : 1.2;
   let totalWidth = 0;
 
   window.addEventListener("load", () => {
