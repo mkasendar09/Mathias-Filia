@@ -66,16 +66,8 @@ h1, h2 {
 }
 
 .hero-content {
-  z-index: 2;
-}
-
-.hero-content {
   position: relative;
   z-index: 3;
-  text-align: center;
-  color: white;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .hero-content h1 {
@@ -93,10 +85,6 @@ h1, h2 {
   margin: 10px 0 20px;
 }
 
-.bg-light {
-  background: #f9f6f2;
-}
-
 .btn {
   display: inline-block;
   padding: 12px 28px;
@@ -112,9 +100,6 @@ h1, h2 {
   background: #3C4D03;
 }
 
-* { box-sizing: border-box; 
-   margin:0; 
-   padding:0; }
 
 .carousel-section {
   position: relative;
