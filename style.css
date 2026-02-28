@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Cormorant Garamond', serif;
+  color: white;
 }
 
 /* ===============================
@@ -51,8 +52,9 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-h1, h2 {
+h1, h2, h3, p {
   font-family: 'Playfair Display', serif;
+  color: white;
 }
 
 .hero {
@@ -75,8 +77,35 @@ h1, h2 {
   margin-bottom: 10px;
 }
 
+.image-selection {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 150px 20px;
+}
+
+#story {
+  background-image: url("images/G.HEIC");
+}
+
+#details {
+  background-image: url("images/H.jpg");
+}
+/* overlay biar text kebaca */
+.image-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.image-section * {
+  position: relative;
+  z-index: 2;
+}
+
 .story {
-  padding: 80px 20px;
   text-align: center;
 }
 
@@ -215,4 +244,13 @@ h1, h2 {
   max-width: 700px;
   margin: 0 auto;
   text-align: left;
+}
+
+.bank-box {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 15px;
+  background: rgba(255,255,255,0.05);
 }
