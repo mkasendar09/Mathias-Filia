@@ -82,28 +82,26 @@ h1, h2 {
 
 .carousel-section {
   position: relative;
-  width: 100vw;
-  height: 100vh;       /* full viewport height */
+  width: 100%;
   overflow: hidden;
 }
 
 .carousel-track {
   display: flex;
-  width: 1000vw;        /* 10 foto total (5 asli + 5 duplikat) */
-  height: 100%;
+  width: max-content;        /* 10 foto total (5 asli + 5 duplikat) */
   animation: slide 30s linear infinite; /* durasi bisa disesuaikan */
 }
 
 .carousel-track img {
   width: 100vw;         /* setiap foto penuh lebar layar */
-  height: 100vh;        /* tinggi layar penuh */
+  height: 80vh;        /* tinggi layar penuh */
   object-fit: cover;    /* foto cover section */
   flex-shrink: 0;
 }
 
-@keyframes slide {
+@keyframes scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-500vw); } /* geser sebanyak 5 foto asli */
+  100% { transform: translateX(-50%); } /* geser sebanyak 5 foto asli */
 }
 
 #detail {
