@@ -172,6 +172,35 @@
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 </script>
+  
+<script>
+  const rsvpForm = document.getElementById("rsvpForm");
+  const rsvpMessage = document.getElementById("rsvpMessage");
+
+  rsvpForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const attendance = document.getElementById("attendance").value;
+    const guests = document.getElementById("guests").value || 1;
+
+    try {
+      await db.collection("rsvp").add({
+        name: name,
+        attendance: attendance,
+        guests: guests,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      rsvpMessage.innerText = "Thank you for your response 🤍";
+      rsvpForm.reset();
+
+    } catch (error) {
+      console.error(error);
+      rsvpMessage.innerText = "Something went wrong.";
+    }
+  });
+</script>
 
 <section id="gift" class="section bg-light">
   <h2>Thank You</h2>
