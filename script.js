@@ -169,13 +169,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Play music setelah user interaction
     if (music) {
-      try {
-        music.volume = 0.5;
-        await music.play();
-      } catch (err) {
-        console.log("Music blocked:", err);
+  try {
+    music.volume = 0;   // mulai dari 0
+    await music.play();
+
+    let targetVolume = 0.5;
+    let fadeSpeed = 0.02; // makin kecil makin smooth
+    let interval = 50;    // ms
+
+    const fadeIn = setInterval(() => {
+      if (music.volume < targetVolume) {
+        music.volume = Math.min(music.volume + fadeSpeed, targetVolume);
+      } else {
+        clearInterval(fadeIn);
       }
-    }
+    }, interval);
+
+  } catch (err) {
+    console.log("Music blocked:", err);
+  }
+}
 
     // Fade in main content TANPA display:none
     mainContent.classList.add("show");
