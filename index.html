@@ -14,6 +14,10 @@
 </head>
 <body>
 
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  
 <!-- 🎵 Background Music -->
 <audio id="bgMusic" src="assets/WhatsApp Audio 2026-02-26 at 14.20.56.mp4" autoplay loop></audio>
 
@@ -130,6 +134,33 @@
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScuPqwWZHse7UnGUf0OqV3WO25QZSSCCpvawYqIN-EYknQTdw/viewform?usp=sharing&ouid=105990949326681213139" target="_blank" class="btn">Confirm Attendance</a>
 </section>
 
+<section id="wishes" class="section bg-light">
+  <h2>Guest Wishes</h2>
+
+  
+  <form id="wishForm">
+    <input type="text" id="nameInput" placeholder="Your name" required>
+    <textarea id="msgInput" rows="4" placeholder="Your message" required></textarea>
+    <button type="submit" class="btn">Send Wish</button>
+  </form>
+
+  <div id="wishesList"></div>
+</section>
+<script>
+  const firebaseConfig = {
+  apiKey: "AIzaSyDRfXzgAHTE_rbno-rZ6C4MPj1cFHFTYVU",
+  authDomain: "wedding-mf-91429.firebaseapp.com",
+  projectId: "wedding-mf-91429",
+  storageBucket: "wedding-mf-91429.firebasestorage.app",
+  messagingSenderId: "640817754778",
+  appId: "1:640817754778:web:f23177b7eaa3d477096523"
+};
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+
+  
 <!-- Swiper JS -->
 <script src="script.js"></script>
 
