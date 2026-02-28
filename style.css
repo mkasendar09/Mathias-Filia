@@ -104,8 +104,41 @@ h1, h2 {
   100% { transform: translateX(-50%); } /* geser sebanyak 5 foto asli */
 }
 
-#detail {
+#details {
   text-align: center;
+  line-height: 1.8;
+}
+
+#parents {
+  text-align: center;
+  line-height: 1.8;
+}
+
+#parents p {
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+#parents .couple-name {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 40px 0 10px;
+}
+
+#parents .child-text {
+  font-size: 18px;
+  margin: 10px 0 20px;
+}
+
+#parents .parent-name {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+#parents .and-symbol {
+  font-size: 28px;
+  margin: 50px 0;
 }
 
 .details-container {
@@ -127,6 +160,4 @@ h1, h2 {
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
-#parents-section {
-  text-align: center;
-}
+
