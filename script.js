@@ -1,12 +1,30 @@
-const playBtn = document.getElementById("playBtn");
-const music = document.getElementById("bgMusic");
+// 🎵 Autoplay Fix (browser sometimes block autoplay with sound)
+window.addEventListener("load", () => {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.5;
 
-playBtn.addEventListener("click", () => {
-    if (music.paused) {
+  const playPromise = music.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      document.body.addEventListener("click", () => {
         music.play();
-        playBtn.textContent = "Pause 🎵";
-    } else {
-        music.pause();
-        playBtn.textContent = "Play 🎵";
-    }
+      }, { once: true });
+    });
+  }
+});
+
+// 📸 Swiper Carousel
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
