@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -22,11 +23,13 @@ body {
 
 #mainContent {
   opacity: 0;
+  visibility: hidden;
   transition: opacity 1s ease;
 }
 
 #mainContent.show {
   opacity: 1;
+  visibility: visible;
 }
 
 /* ============================= */
