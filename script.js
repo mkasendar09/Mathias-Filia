@@ -169,21 +169,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Play music setelah user interaction
     if (music) {
-  try {
-    music.volume = 0;   // mulai dari 0
+    try {
+    music.volume = 0;
     await music.play();
 
-    let targetVolume = 0.5;
-    let fadeSpeed = 0.02; // makin kecil makin smooth
-    let interval = 50;    // ms
+    const targetVolume = 0.5;
+    const fadeDuration = 4000; // 4 detik (bisa 5000 kalau mau lebih lama)
 
-    const fadeIn = setInterval(() => {
-      if (music.volume < targetVolume) {
-        music.volume = Math.min(music.volume + fadeSpeed, targetVolume);
-      } else {
-        clearInterval(fadeIn);
+    const startTime = performance.now();
+
+    function fadeAudio(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / fadeDuration, 1);
+
+      // easing biar makin smooth (ease-in)
+      const eased = progress * progress;
+
+      music.volume = eased * targetVolume;
+
+      if (progress < 1) {
+        requestAnimationFrame(fadeAudio);
       }
-    }, interval);
+    }
+
+    requestAnimationFrame(fadeAudio);
 
   } catch (err) {
     console.log("Music blocked:", err);
