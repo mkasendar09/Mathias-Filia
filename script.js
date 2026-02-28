@@ -1,25 +1,4 @@
-// ========================================
-// 🎵 BACKGROUND MUSIC AUTOPLAY FIX
-// ========================================
-window.addEventListener("load", () => {
-  const music = document.getElementById("bgMusic");
-  if (!music) return;
 
-  music.volume = 0.5;
-
-  const playPromise = music.play();
-  if (playPromise !== undefined) {
-    playPromise.catch(() => {
-      document.body.addEventListener(
-        "click",
-        () => {
-          music.play();
-        },
-        { once: true }
-      );
-    });
-  }
-});
 
 // ========================================
 // 📸 INFINITE CAROUSEL (SMOOTH)
@@ -165,4 +144,50 @@ document.addEventListener("DOMContentLoaded", () => {
         wishesList.appendChild(div);
       });
     });
+});
+
+// ========================================
+// 🎬 INTRO SCREEN LOGIC
+// ========================================
+document.addEventListener("DOMContentLoaded", () => {
+  const introScreen = document.getElementById("introScreen");
+  const introVideo = document.getElementById("introVideo");
+  const openBtn = document.getElementById("openBtn");
+  const mainContent = document.getElementById("mainContent");
+  const music = document.getElementById("bgMusic");
+
+  if (!introVideo || !openBtn) return;
+
+  // Pastikan main content tersembunyi di awal
+  if (mainContent) {
+    mainContent.style.display = "none";
+  }
+
+  // Saat video selesai → munculkan tombol
+  introVideo.addEventListener("ended", () => {
+    openBtn.classList.add("show");
+  });
+
+  // Kalau user klik tombol
+  openBtn.addEventListener("click", async () => {
+    introScreen.classList.add("fade-out");
+
+    // Play music (lebih aman pakai try catch)
+    if (music) {
+      try {
+        music.volume = 0.5;
+        await music.play();
+      } catch (err) {
+        console.log("Music autoplay blocked:", err);
+      }
+    }
+
+    // Setelah animasi fade selesai
+    setTimeout(() => {
+      introScreen.style.display = "none";
+      if (mainContent) {
+        mainContent.style.display = "block";
+      }
+    }, 1200);
+  });
 });
