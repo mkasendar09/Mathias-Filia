@@ -36,10 +36,16 @@ body {
 /* INTRO SCREEN */
 /* ============================= */
 
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 #introScreen {
-  position: relative;
+  position: fixed;
   inset: 0;
-  background: black;
+  width: 100%;
+  height: 100vh;
   z-index: 9999;
   display: flex;
   align-items: center;
