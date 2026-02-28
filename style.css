@@ -8,12 +8,6 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 
-.couple-name {
-  font-family: 'Cinzel', serif;
-  font-size: 30px;
-  letter-spacing: 2px;
-}
-
 h1, h2 {
   font-family: 'Playfair Display', serif;
 }
@@ -58,10 +52,14 @@ h1, h2 {
   margin-bottom: 10px;
 }
 
-.section {
+.story {
   padding: 80px 20px;
   text-align: center;
 }
+
+#story .story-text {
+  font-size: 18px;
+  margin: 10px 0 20px;
 
 .bg-light {
   background: #f9f6f2;
@@ -83,6 +81,10 @@ h1, h2 {
 }
 
  { box-sizing: border-box; margin:0; padding:0; }
+
+#parents .child-text {
+  font-size: 18px;
+  margin: 10px 0 20px;
 
 .carousel-section {
   position: relative;
