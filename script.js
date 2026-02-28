@@ -150,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // 🎬 INTRO SCREEN LOGIC
 // ========================================
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("no-scroll");
   const introScreen = document.getElementById("introScreen");
   const introVideo = document.getElementById("introVideo");
   const openBtn = document.getElementById("openBtn");
@@ -165,46 +166,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Kalau user klik tombol
   openBtn.addEventListener("click", async () => {
-    introScreen.classList.add("fade-out");
+  introScreen.classList.add("fade-out");
 
-    // Play music setelah user interaction
-    if (music) {
+  if (music) {
     try {
-    music.volume = 0;
-    await music.play();
+      music.volume = 0;
+      await music.play();
 
-    const targetVolume = 0.5;
-    const fadeDuration = 4000; // 4 detik (bisa 5000 kalau mau lebih lama)
+      const targetVolume = 0.5;
+      const fadeDuration = 4000;
+      const startTime = performance.now();
 
-    const startTime = performance.now();
+      function fadeAudio(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / fadeDuration, 1);
+        const eased = progress * progress;
 
-    function fadeAudio(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / fadeDuration, 1);
+        music.volume = eased * targetVolume;
 
-      // easing biar makin smooth (ease-in)
-      const eased = progress * progress;
-
-      music.volume = eased * targetVolume;
-
-      if (progress < 1) {
-        requestAnimationFrame(fadeAudio);
+        if (progress < 1) {
+          requestAnimationFrame(fadeAudio);
+        }
       }
+
+      requestAnimationFrame(fadeAudio);
+
+    } catch (err) {
+      console.log(err);
     }
-
-    requestAnimationFrame(fadeAudio);
-
-  } catch (err) {
-    console.log("Music blocked:", err);
   }
-}
 
-    // Fade in main content TANPA display:none
-    mainContent.classList.add("show");
+  mainContent.classList.add("show");
 
-    // Hapus intro setelah animasi selesai
-    setTimeout(() => {
-      introScreen.style.display = "none";
-    }, 1200);
-  });
+  setTimeout(() => {
+    introScreen.style.display = "none";
+    document.body.classList.remove("no-scroll"); // 🔥 UNLOCK SCROLL
+  }, 1200);
+});
 });
