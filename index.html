@@ -130,7 +130,22 @@
 <!-- RSVP -->
 <section id="rsvp" class="section bg-light">
   <h2>RSVP</h2>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScuPqwWZHse7UnGUf0OqV3WO25QZSSCCpvawYqIN-EYknQTdw/viewform?usp=sharing&ouid=105990949326681213139" target="_blank" class="btn">Confirm Attendance</a>
+
+  <form id="rsvpForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    
+    <select id="attendance" required>
+      <option value="">Will you attend?</option>
+      <option value="Yes">Yes, with pleasure</option>
+      <option value="No">Sorry, can't make it</option>
+    </select>
+
+    <input type="number" id="guests" placeholder="Number of Guests" min="1">
+
+    <button type="submit" class="btn">Send RSVP</button>
+  </form>
+
+  <p id="rsvpMessage"></p>
 </section>
 
 <section id="wishes" class="section bg-light">
