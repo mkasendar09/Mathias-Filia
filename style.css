@@ -8,6 +8,10 @@ body {
   font-family: 'Cormorant Garamond', serif;
 }
 
+.section {
+  padding: 100px 20px;
+}
+
 h1, h2 {
   font-family: 'Playfair Display', serif;
 }
@@ -167,8 +171,12 @@ h1, h2 {
 }
 
 #rsvp {
-  padding: 100px 20px;
   text-align: center;
+}
+
+#rsvp h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
 #rsvp .btn {
