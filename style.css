@@ -98,7 +98,7 @@ h1, h2 {
 }
 
 .carousel-track img {
-  width: 100%;         /* setiap foto penuh lebar layar */
+  width: 100vw;         /* setiap foto penuh lebar layar */
   height: 80vh;        /* tinggi layar penuh */
   object-fit: cover;    /* foto cover section */
   flex-shrink: 0;
