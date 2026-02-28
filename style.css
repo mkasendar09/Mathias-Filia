@@ -9,6 +9,17 @@ body {
   color: white;
 }
 
+#openBtn {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.6s ease;
+}
+
+#openBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 #mainContent {
   opacity: 0;
   transition: opacity 1s ease;
