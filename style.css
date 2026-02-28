@@ -82,7 +82,7 @@ h1, h2 {
 
 .carousel-section {
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;       /* full viewport height */
   overflow: hidden;
 }
@@ -95,7 +95,7 @@ h1, h2 {
 }
 
 .carousel-track img {
-  width: 100%;         /* setiap foto penuh lebar layar */
+  width: 100vw;         /* setiap foto penuh lebar layar */
   height: 100vh;        /* tinggi layar penuh */
   object-fit: cover;    /* foto cover section */
   flex-shrink: 0;
