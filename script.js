@@ -14,17 +14,35 @@ window.addEventListener("load", () => {
 });
 
 // 📸 Swiper Carousel
-const swiper = new Swiper('.swiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".carousel-track");
+
+  // Clone semua slide sekali
+  const slides = Array.from(track.children);
+  slides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let position = 0;
+  let speed = 0.5; // makin kecil makin lambat (0.3 - 1 ideal)
+  let totalWidth = 0;
+
+  // Tunggu gambar load dulu supaya width akurat
+  window.addEventListener("load", () => {
+    totalWidth = track.scrollWidth / 2;
+  });
+
+  function animate() {
+    position -= speed;
+
+    if (Math.abs(position) >= totalWidth) {
+      position = 0;
+    }
+
+    track.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 });
