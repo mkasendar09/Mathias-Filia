@@ -1,47 +1,109 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor & Angel Wedding</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathias & Filia Wedding</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Swiper Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Hero -->
-    <header class="hero">
-        <img src="assets/hero.jpg" alt="Victor & Angel" class="hero-img">
-        <div class="hero-text">
-            <h1>Victor & Angel</h1>
-            <p>Save the Date — 10 October 2026</p>
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" src="assets/WhatsApp Audio 2026-02-26 at 14.20.56.mp4" autoplay loop></audio>
+
+<!-- HERO -->
+<section class="hero">
+  <video src="assets/WhatsApp Video 2026-02-26 at 14.58.38.mp4" class="hero-video">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Mathias & Filia</h1>
+    <p>15 August 2027</p>
+    <a href="#details" class="btn">View Details</a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section">
+  <h2>Our Story</h2>
+  <p>
+    We met eons ago when we were still in mid-school. Only God knows whether it was sheer coincidence or it was really the start of it all...
+  </p>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="section bg-light">
+  <h2>Wedding Details</h2>
+    <div> class="details-container">
+
+        <div class="event-info">
+          <h3><strong>Holy Matrimony</strong> – 10:00 AM</h3>
+          <p>Lantai 4 & 5, Gereja GRII Karawaci, Tangerang</p>
+          <br>
         </div>
-    </header>
+    
+        <div class="map-container">
+          <iframe 
+            src="https://maps.app.goo.gl/WHxRz81d2rD6oqMY8"
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+    </div>
+</section>
 
-    <!-- Our Story -->
-    <section id="story">
-        <h2>Our Story</h2>
-        <p>Kami bertemu di … (tulis ceritamu di sini)</p>
-    </section>
+<!-- GALLERY CAROUSEL -->
+<section class="section">
+  <h2></h2>
 
-    <!-- Details -->
-    <section id="details">
-        <h2>Details</h2>
-        <p>Holy Matrimony: 10:00 AM – Lantai 4 & 5 Gereja GRII Karawaci</p>
-    </section>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="images/1.jpg">
+      </div>
+      <div class="swiper-slide">
+        <img src="images/2.jpg">
+      </div>
+      <div class="swiper-slide">
+        <img src="images/3.jpg">
+      </div>
+      <div class="swiper-slide">
+        <img src="images/4.jpg">
+      </div>
+      <div class="swiper-slide">
+        <img src="images/5.jpg">
+      </div>
+    
+    </div>
+    
 
-    <!-- Gallery -->
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <img src="assets/foto1.jpg" alt="Foto 1">
-        <img src="assets/foto2.jpg" alt="Foto 2">
-    </section>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
 
-    <!-- RSVP -->
-    <section id="rsvp">
-        <h2>RSVP</h2>
-        <p><a href="https://docs.google.com/forms/your-form-id" target="_blank" class="btn">Isi RSVP</a></p>
-    </section>
-  
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="section bg-light">
+  <h2>RSVP</h2>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScuPqwWZHse7UnGUf0OqV3WO25QZSSCCpvawYqIN-EYknQTdw/viewform?usp=sharing&ouid=105990949326681213139" target="_blank" class="btn">Confirm Attendance</a>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
