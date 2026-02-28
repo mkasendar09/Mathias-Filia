@@ -46,3 +46,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animate();
 });
+
+// ———————————————————————————————
+// Guest Wishes
+// ———————————————————————————————
+
+const wishForm = document.getElementById("wishForm");
+const wishesList = document.getElementById("wishesList");
+
+// Simpan wish ke Firebase
+wishForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("nameInput").value.trim();
+  const msg = document.getElementById("msgInput").value.trim();
+
+  if (!name || !msg) return;
+
+  db.collection("wishes").add({
+    name: name,
+    message: msg,
+    created: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(() => {
+    wishForm.reset();
+  });
+});
+
+// Tampilkan realtime
+db.collection("wishes")
+.orderBy("created", "desc")
+.onSnapshot(snapshot => {
+  wishesList.innerHTML = "";
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    const div = document.createElement("div");
+    div.classList.add("wish");
+    div.innerHTML = `
+      <strong>${data.name}</strong>
+      <p>${data.message}</p>
+      <hr>
+    `;
+    wishesList.appendChild(div);
+  });
+});
