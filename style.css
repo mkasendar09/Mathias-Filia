@@ -60,6 +60,7 @@ h1, h2 {
 #story .story-text {
   font-size: 18px;
   margin: 10px 0 20px;
+}
 
 .bg-light {
   background: #f9f6f2;
@@ -80,11 +81,9 @@ h1, h2 {
   background: #3C4D03;
 }
 
- { box-sizing: border-box; margin:0; padding:0; }
-
-#parents .child-text {
-  font-size: 18px;
-  margin: 10px 0 20px;
+* { box-sizing: border-box; 
+   margin:0; 
+   padding:0; }
 
 .carousel-section {
   position: relative;
@@ -95,11 +94,11 @@ h1, h2 {
 .carousel-track {
   display: flex;
   width: max-content;        /* 10 foto total (5 asli + 5 duplikat) */
-  animation: slide 30s linear infinite; /* durasi bisa disesuaikan */
+  animation: scroll 30s linear infinite; /* durasi bisa disesuaikan */
 }
 
 .carousel-track img {
-  width: 100vw;         /* setiap foto penuh lebar layar */
+  width: 100%;         /* setiap foto penuh lebar layar */
   height: 80vh;        /* tinggi layar penuh */
   object-fit: cover;    /* foto cover section */
   flex-shrink: 0;
