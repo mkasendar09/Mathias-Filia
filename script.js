@@ -151,56 +151,58 @@ document.addEventListener("DOMContentLoaded", () => {
 // ========================================
 document.addEventListener("DOMContentLoaded", () => {
   document.body.classList.add("no-scroll");
+
   const introScreen = document.getElementById("introScreen");
-  const introVideo = document.getElementById("introVideo");
   const openBtn = document.getElementById("openBtn");
   const mainContent = document.getElementById("mainContent");
   const music = document.getElementById("bgMusic");
 
-  if (!introVideo || !openBtn || !mainContent) return;
+  if (!introScreen || !openBtn || !mainContent) return;
 
-  // Saat video selesai → munculkan tombol
-  introVideo.addEventListener("ended", () => {
-    openBtn.classList.add("show");
-  });
+  // Karena sekarang pakai foto, tombol langsung muncul
+  openBtn.classList.add("show");
 
-  // Kalau user klik tombol
+  // Saat user klik Open Invitation
   openBtn.addEventListener("click", async () => {
-  introScreen.classList.add("fade-out");
 
-  if (music) {
-    try {
-      music.volume = 0;
-      await music.play();
+    introScreen.classList.add("fade-out");
 
-      const targetVolume = 0.5;
-      const fadeDuration = 4000;
-      const startTime = performance.now();
+    // Play music + fade in volume
+    if (music) {
+      try {
+        music.volume = 0;
+        await music.play();
 
-      function fadeAudio(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / fadeDuration, 1);
-        const eased = progress * progress;
+        const targetVolume = 0.5;
+        const fadeDuration = 4000;
+        const startTime = performance.now();
 
-        music.volume = eased * targetVolume;
+        function fadeAudio(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / fadeDuration, 1);
+          const eased = progress * progress;
 
-        if (progress < 1) {
-          requestAnimationFrame(fadeAudio);
+          music.volume = eased * targetVolume;
+
+          if (progress < 1) {
+            requestAnimationFrame(fadeAudio);
+          }
         }
+
+        requestAnimationFrame(fadeAudio);
+
+      } catch (err) {
+        console.log("Music autoplay blocked:", err);
       }
-
-      requestAnimationFrame(fadeAudio);
-
-    } catch (err) {
-      console.log(err);
     }
-  }
 
-  mainContent.classList.add("show");
+    // Tampilkan main content
+    mainContent.classList.add("show");
 
-  setTimeout(() => {
-    introScreen.style.display = "none";
-    document.body.classList.remove("no-scroll"); // 🔥 UNLOCK SCROLL
-  }, 1200);
-});
+    // Hilangkan intro setelah animasi selesai
+    setTimeout(() => {
+      introScreen.style.display = "none";
+      document.body.classList.remove("no-scroll");
+    }, 1200);
+  });
 });
